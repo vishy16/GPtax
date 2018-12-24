@@ -1,0 +1,175 @@
+{% extends 'homepage/home.html' %}
+{% block slider %}
+ 
+{% endblock %} 
+{% block body %}
+<div class="container pay-online">
+   <div class="row margin-top">
+      <div class="panel panel-default add-panel-corner">
+         <div class="panel-heading text-center">
+            <h5><strong>Property Tax Dues Details</strong></h5>
+         </div>
+         <form class="form-horizontal"  action= "" method="POST"> 
+         {% csrf_token %}  
+            <div class="panel-body">
+               <div class="row text-center">
+                  <div class="col-md-12 Reciept-class">
+                     <div class="col-md-3">
+                        <b>Property Number <span>*</span></b>
+                     </div>
+                     <div class="col-md-3">
+                        <input type="text" value="{{ property_no }}" name = "property_no" placeholder="Property No." class="form-control property_no-class">
+                     </div>
+                  </div>
+               </div>
+               <br>
+               <div class="row text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="reset" value="Reset" class="btn btn-primary">Clear</button>
+               </div>
+            </div>
+            </form>
+      </div>
+   </div>
+   <div class="row">
+      <div class="panel panel-default add-panel-corner">
+         <div class="panel-heading text-center">
+            <h5><strong>Property Owner Details</strong></h5>
+         </div>
+         <div class="panel-body hidden-sm hidden-xs">
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label">
+                  <b>Name</b>
+               </div>
+               <div class="col-md-6 property-data">
+               {{ data.property_detail.owner.first_name }} {{ data.property_detail.owner.last_name  }}
+               </div>
+            </div>
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label">
+                  <b>Property Type</b>
+               </div>
+               <div class="col-md-6 property-data">
+               {{ data.property_detail.property_type }}
+               </div>
+            </div>
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label">
+                  <b>Property Name</b>
+               </div>
+               <div class="col-md-6 property-data">
+               {{ data.property_detail.property_name }}
+               </div>
+            </div>
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label">
+                  <b>Taxation Year</b>
+               </div>
+               <div class="col-md-6 property-data">
+               {{ data.property_detail.taxation_year }}
+               </div>
+            </div>
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label">
+                  <b>Total Area</b>
+               </div>
+               <div class="col-md-6 property-data">
+               {{ data.property_detail.total_area }}
+               </div>
+            </div>
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label">
+                  <b>Total Tax</b>
+               </div>
+               <div class="col-md-6 property-data">
+               {{ data.property_detail.total_tax }}
+               </div>
+            </div>
+         </div>
+         <div class="panel-body hidden-md hidden-lg">
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label-sm">
+                  <b>Name</b>
+               </div>
+               <div class="col-md-6 property-data">
+               </div>
+            </div>
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label-sm">
+                  <b>Ward</b>
+               </div>
+               <div class="col-md-6 property-data">
+               </div>
+            </div>
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label-sm">
+                  <b>Address</b>
+               </div>
+               <div class="col-md-6 property-data">
+               </div>
+            </div>
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label-sm">
+                  <b>First Owner</b>
+               </div>
+               <div class="col-md-6 property-data">
+               </div>
+            </div>
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label-sm">
+                  <b>Second Owner</b>
+               </div>
+               <div class="col-md-6 property-data">
+               </div>
+            </div>
+            <div class="row row-border">
+               <div class="col-md-6 property-detail-label-sm">
+                  <b>Property Description</b>
+               </div>
+               <div class="col-md-6 property-data">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="panel panel-default add-panel-corner">
+         <div class="panel-heading text-center">
+            <h5><strong>Property Dues Details</strong></h5>
+         </div>
+         <div class="panel-body">
+            <form class="form-horizontal">
+               <div class="form-group">
+                  <label class="col-md-4 control-label" for="fn">Applicant Mobile No <span>*</span></label>  
+                  <div class="col-md-4">
+                     <input id="fn" name="fn" type="text" placeholder="Applicant Mobile No " class="form-control input-md" required="">
+                  </div>
+               </div>
+               <!-- Text input-->
+               <div class="form-group">
+                  <label class="col-md-4 control-label" for="cmpny">Applicant Email Id <span>*</span></label>  
+                  <div class="col-md-4">
+                     <input id="cmpny" name="cmpny" type="text" placeholder="email" class="form-control input-md" required="">
+                  </div>
+               </div>
+               <!-- Text input-->
+               <div class="form-group">
+                  <label class="col-md-4 control-label" for="email">Select Payment Merchant <span>*</span></label>  
+                  <div class="col-md-4">
+                     <input id="email" name="email" type="text" placeholder="Select Payment Merchant" class="form-control input-md" required="">
+                  </div>
+               </div>
+               <!-- Text input-->
+               <!-- Button -->
+               <div class="form-group">
+                  <label class="col-md-4 control-label" for="submit"></label>
+                  <div class="col-md-4 property-dues-details-button">
+                     <button id="submit" name="submit" class="btn btn-primary">SUBMIT</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}
