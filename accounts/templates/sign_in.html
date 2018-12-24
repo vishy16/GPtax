@@ -1,0 +1,35 @@
+<div class="sign-in">
+  <form action="/auth/" id="loginform" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="formtype" value="login"/>
+    <input type="hidden" name="next" value="{{ next }}"/>
+    <div class="table">
+      <div class="row">
+        <div class="col">
+          {{ loginform.username }}<br>
+        </div>
+        <div class="col">
+          {{ loginform.password }}<br>
+        </div>
+        <div class="col">
+          <div id="btn-login" class="button btnGray dib btn-connect">
+            Sign in
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col w50">
+          <input type="checkbox" name="keep-login" value="keep-login"
+                 id="keep-login" class="vattop">
+          <label for="keep-login">
+            <span class="fsize11">Keep me logged in</span>
+          </label>
+        </div>
+        <div class="col w50">
+          <a href="{% url 'password_reset' %}"
+             class="fsize11 ml5">Forgot password ?</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
